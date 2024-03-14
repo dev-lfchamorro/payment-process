@@ -1,2 +1,16 @@
+@import "../../assets/css/mixins.scss";
+@import "../../assets/css/colors.scss";
+
 .products-container {
+  .cover-content {
+    @include cover-content-styles($color-white);
+  }
+}
+
+@include mq-small-device {
+  .products-container {
+    .cover-content {
+      @include cover-content-styles-mq-small-device;
+    }
+  }
 }
