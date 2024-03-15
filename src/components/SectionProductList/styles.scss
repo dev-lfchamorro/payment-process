@@ -1,0 +1,13 @@
+@import "../../assets/css/colors.scss";
+
+.section-products {
+  background-color: $color-rgba-tertiary-sections;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  justify-content: space-between;
+  margin-top: 2rem;
+  padding: 0 1rem 1.5rem;
+  width: calc(95% - 2rem);
+  border-radius: 8px;
+}
