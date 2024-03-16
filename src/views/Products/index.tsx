@@ -1,11 +1,11 @@
 import React from "react";
 import CoverContent from "../../components/CoverContent/idex";
 import SectionProductList from "../../components/SectionProductList";
+import Footer from "../../components/common/Footer";
 import Header from "../../components/common/Header";
 import ImgProducts from "./../../assets/images/products.avif";
 import { highlightedProducts } from "./constants";
 import "./styles.scss";
-import Footer from "../../components/common/Footer";
 
 const Products: React.FC = () => {
   const highlightedList = highlightedProducts.highlighted || [];
