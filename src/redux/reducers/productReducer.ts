@@ -1,12 +1,12 @@
-import { ProductAction } from "../actions/productActions";
 import * as actionTypes from "../types/productTypes";
+import { ProductActionTypes } from "../types/productTypes";
 
 const initialState = {
   products: [],
   selectedProductId: null,
 };
 
-const productsReducer = (state = initialState, action: ProductAction) => {
+const productsReducer = (state = initialState, action: ProductActionTypes) => {
   switch (action.type) {
     case actionTypes.ADD_PRODUCT:
       return {

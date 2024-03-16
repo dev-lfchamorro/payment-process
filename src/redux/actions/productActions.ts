@@ -1,14 +1,16 @@
 import { Products } from "../../types";
-import * as actionTypes from "./../types/productTypes";
+import {
+  ADD_PRODUCT,
+  ProductActionTypes,
+  SELECT_PRODUCT,
+} from "../types/productTypes";
 
-interface AddProduct {
-  type: typeof actionTypes.ADD_PRODUCT;
-  payload: Products;
-}
+export const addProduct = (productData: Products): ProductActionTypes => ({
+  type: ADD_PRODUCT,
+  payload: productData,
+});
 
-interface selectProduct {
-  type: typeof actionTypes.SELECT_PRODUCT;
-  payload: string;
-}
-
-export type ProductAction = AddProduct | selectProduct;
+export const selectProduct = (productId: string): ProductActionTypes => ({
+  type: SELECT_PRODUCT,
+  payload: productId,
+});
