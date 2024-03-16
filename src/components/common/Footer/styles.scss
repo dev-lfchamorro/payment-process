@@ -17,40 +17,6 @@
     justify-content: space-around;
     padding: 1rem;
     width: 100%;
-
-    .redirection-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      min-width: 280px;
-
-      span {
-        font-size: 20px;
-        font-weight: 600;
-      }
-
-      ul {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-
-        li {
-          font-size: 18px;
-          font-weight: 600;
-
-          a {
-            color: $color-text;
-            font-weight: 400;
-            text-decoration: none;
-            transition: all 0.3s ease-out;
-
-            &:hover {
-              color: $color-primary;
-            }
-          }
-        }
-      }
-    }
   }
 
   hr {
