@@ -1,5 +1,6 @@
 import { EProducsSection } from "../../../enums";
-import { Products } from "../../../types";
+import { Product } from "../../../types";
+import { v4 as uuidv4 } from "uuid";
 import ImgBooks from "./../../../assets/images/products/books.jpg";
 import ImgCoffeMarker from "./../../../assets/images/products/coffe-marker.jpg";
 import ImgFurniture from "./../../../assets/images/products/furniture.jpg";
@@ -10,7 +11,7 @@ import ImgSpringBags from "./../../../assets/images/products/spring-bags.jpg";
 import ImgSunGlassess from "./../../../assets/images/products/sunglassess.jpg";
 
 type ProductsMap = {
-  [key in EProducsSection]: Products[];
+  [key in EProducsSection]: Product[];
 };
 
 export const highlightedProducts: ProductsMap = {
@@ -19,6 +20,7 @@ export const highlightedProducts: ProductsMap = {
       brand: "Nike",
       category: "Zapatillas deportivas",
       hasDiscount: false,
+      id: uuidv4(),
       image: ImgSneakers,
       name: "AZ Infusion",
       price: 225999,
@@ -28,6 +30,7 @@ export const highlightedProducts: ProductsMap = {
       category: "Teléfonos",
       discount: 10,
       hasDiscount: true,
+      id: uuidv4(),
       image: ImgIphone14,
       name: "iPhone 11 Pro Max",
       price: 4325000,
@@ -35,15 +38,17 @@ export const highlightedProducts: ProductsMap = {
     {
       brand: "Louis Vuitton",
       category: "Bolsos primavera",
+      id: uuidv4(),
       image: ImgSpringBags,
       name: "Speedy",
       price: 460999,
     },
     {
-      brand: "Louis Vuitton",
-      category: "Bolsos primavera",
+      brand: "GMO",
+      category: "Accesorios",
       discount: 65,
       hasDiscount: true,
+      id: uuidv4(),
       image: ImgSunGlassess,
       name: "Speedy",
       price: 460999,
@@ -55,6 +60,7 @@ export const highlightedProducts: ProductsMap = {
       category: "Cocina",
       discount: 22,
       hasDiscount: true,
+      id: uuidv4(),
       image: ImgCoffeMarker,
       name: "Coffestyle",
       price: 225999,
@@ -64,15 +70,17 @@ export const highlightedProducts: ProductsMap = {
       category: "Lectura",
       discount: 25,
       hasDiscount: true,
+      id: uuidv4(),
       image: ImgBooks,
       name: "¿Cuál verdad?",
       price: 38500,
     },
     {
-      brand: "Louis Vuitton",
+      brand: "H House",
       category: "Hogar",
       discount: 58,
       hasDiscount: true,
+      id: uuidv4(),
       image: ImgFurniture,
       name: "500 Lí",
       price: 365000,
@@ -82,6 +90,7 @@ export const highlightedProducts: ProductsMap = {
       category: "Deportes",
       discount: 44,
       hasDiscount: true,
+      id: uuidv4(),
       image: ImgSportsSweatshirts,
       name: "Poe Safe",
       price: 85900,
