@@ -1,0 +1,79 @@
+@import "./../../../../assets/css/colors.scss";
+@import "./../../../../assets/css/mixins.scss";
+
+.product-detail-container {
+  .section-title {
+    margin-top: 2rem;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .product-detail-wrapper {
+    @include flex-row-center;
+    align-items: stretch;
+    gap: 1rem;
+    padding: 2rem;
+
+    .title-text {
+      display: inline-block;
+      width: 100px;
+      font-weight: 600;
+    }
+
+    .product-detail {
+      background-color: $color-white;
+      border-radius: 8px;
+      display: flex;
+      flex-grow: 12;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 1rem;
+
+      &-image {
+        height: 250px;
+        max-width: 400px;
+        width: 100%;
+
+        img {
+          border-radius: 5px;
+          height: 100%;
+          object-fit: cover;
+          width: 100%;
+        }
+      }
+    }
+
+    .product-payment-method {
+      flex-grow: 3;
+      background-color: $color-white;
+      padding: 1rem;
+
+      ul {
+        width: -webkit-fill-available;
+      }
+
+      ul li {
+        display: flex;
+        justify-content: space-between;
+
+        .title-text {
+          width: 140px;
+        }
+      }
+    }
+  }
+
+  .iteresting-products {
+    width: calc(100% - 1rem);
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@include mq-small-device {
+  .product-detail-container {
+    .product-detail-wrapper {
+      flex-wrap: wrap;
+    }
+  }
+}

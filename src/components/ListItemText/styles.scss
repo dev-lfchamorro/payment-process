@@ -1,0 +1,28 @@
+@import "./../../assets/css/colors.scss";
+@import "./../../assets/css/mixins.scss";
+
+.list-item-text-container {
+  @include flex-column-start;
+  flex: auto;
+  gap: 1rem;
+
+  hr {
+    background-color: $color-rgba-black-bg-cards;
+    height: 0.2px;
+    width: 100%;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .discount {
+    background-color: $color-tertiary;
+    border-radius: 15px;
+    color: $color-white;
+    font-weight: 700;
+    padding: 5px 12px;
+  }
+}

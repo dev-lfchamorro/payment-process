@@ -3,7 +3,11 @@ import NavBar from "../../../navigation/NavBar";
 import Logo from "../../Logo";
 import "./styles.scss";
 
-const Header: React.FC = () => {
+type HeaderProps = {
+  hasScrollEffect?: boolean;
+};
+
+const Header: React.FC<HeaderProps> = ({ hasScrollEffect = true }) => {
   const [sticky, setSticky] = useState(false);
 
   useEffect(() => {
@@ -28,7 +32,12 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header id="header-container" className={sticky ? "sticky" : ""}>
+    <header
+      id="header-container"
+      className={`${hasScrollEffect && sticky ? "sticky" : ""} ${
+        !hasScrollEffect ? "fix-header" : ""
+      }`}
+    >
       <Logo slogan="Paga fácil y seguro" />
       <NavBar />
     </header>
