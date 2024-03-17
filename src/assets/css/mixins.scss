@@ -85,15 +85,21 @@
 
 // ** Forms **
 @mixin app-input {
-  background: $color-sextary;
-  border: none;
-  border-bottom: solid 2px $color-gray-dark;
-  color: $color-gray-dark;
-  font-size: 16px;
-  font-weight: 500;
-  height: 64px;
+  padding: 0.8rem 2rem;
+  border-radius: 5px;
+  border: solid 1px $color-labels;
   outline: none;
-  width: 100%;
+
+  &::placeholder {
+    color: $color-placeholder;
+    font-style: italic;
+  }
+}
+@mixin app-label {
+  color: $color-labels;
+  font-size: small;
+  font-weight: 600;
+  margin-bottom: 10px;
 }
 
 // ** Universals **
