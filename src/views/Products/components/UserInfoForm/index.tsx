@@ -1,71 +1,19 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import React from "react";
 import Button from "../../../../components/Button";
 import DropDownList from "../../../../components/common/DropDownList";
 import InputText from "../../../../components/common/InputText";
-import { isEmpty, isValidEmail, isValidPhone } from "../../../../helpers";
-import { RootState } from "../../../../redux/reducers";
-import { UserInfo } from "../../../../types";
+import { useUserInfoForm } from "../../../../hooks";
 import ImgArrowRightCircle from "./../../../../assets/icons/arrow-right-circle.svg";
 import "./styles.scss";
-import { useDispatch } from "react-redux";
-import { setUserInfo } from "../../../../redux/actions";
 
 type UserInfoFormProps = {
   setShowInfoForm: (show: boolean) => void;
 };
 
 const UserInfoForm: React.FC<UserInfoFormProps> = ({ setShowInfoForm }) => {
-  const { userInfo } = useSelector((state: RootState) => state.payments);
-  const dispatch = useDispatch();
-
-  const [formData, setFormData] = useState<UserInfo>({
-    email: userInfo?.email || "",
-    fullname: userInfo?.fullname || "",
-    phoneNumber: userInfo?.phoneNumber || "",
+  const { errors, formData, handleChange, handleNext } = useUserInfoForm({
+    setShowInfoForm,
   });
-
-  const [errors, setErrors] = useState<UserInfo>({
-    email: "",
-    fullname: "",
-    phoneNumber: "",
-  });
-
-  const handleChange = (e: any) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleNext = () => {
-    if (!isValidEmail(formData.email)) {
-      setErrors({ ...errors, email: "Correo electrónico no válido" });
-      return;
-    }
-
-    if (!isEmpty(formData.fullname)) {
-      setErrors({ ...errors, email: "", fullname: "El nombre es obligatorio" });
-      return;
-    }
-
-    if (!isValidPhone(formData.phoneNumber)) {
-      setErrors({
-        ...errors,
-        email: "",
-        fullname: "",
-        phoneNumber: "Teléfono no válido",
-      });
-      return;
-    }
-
-    setErrors({
-      email: "",
-      fullname: "",
-      phoneNumber: "",
-    });
-
-    dispatch(setUserInfo(formData));
-    setShowInfoForm(false);
-  };
 
   return (
     <div className="user-info-form-container">
