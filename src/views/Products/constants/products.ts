@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
 import { EProducsSection } from "../../../enums";
-import { Product } from "../../../types";
+import { ProductsMap } from "../../../types";
 import ImgBooks from "./../../../assets/images/products/books.jpg";
 import ImgCoffeMarker from "./../../../assets/images/products/coffe-marker.jpg";
 import ImgFurniture from "./../../../assets/images/products/furniture.jpg";
@@ -9,10 +9,6 @@ import ImgSneakers from "./../../../assets/images/products/sneakers.jpg";
 import ImgSportsSweatshirts from "./../../../assets/images/products/sports-sweatshirts.jpg";
 import ImgSpringBags from "./../../../assets/images/products/spring-bags.jpg";
 import ImgSunGlassess from "./../../../assets/images/products/sunglassess.jpg";
-
-export type ProductsMap = {
-  [key in EProducsSection]: Product[];
-};
 
 export const productsData: ProductsMap = {
   [EProducsSection.highlighted]: [
