@@ -4,7 +4,7 @@ import ProductCard from "../ProductCard";
 import "./styles.scss";
 
 type SectionProductListProps = {
-  title: string;
+  title?: string;
   productList: Product[];
 };
 

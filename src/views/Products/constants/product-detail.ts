@@ -17,14 +17,15 @@ export const infoProduct = (product: Product): ListItemTextProps => {
 
 export const infoProductValues = (product: Product): ListItemTextProps => {
   const { shipment, price } = product || {};
+  const shipmentValue = shipment || 0;
 
   return {
     itemList: [
-      { title: "Sub-total", value: formatNumber(price || 0) },
-      { title: "Costo de envío", value: formatNumber(shipment || 0) },
+      { title: "Sub-total", value: `$ ${formatNumber(price || 0)}` },
+      { title: "Costo de envío", value: `$ ${formatNumber(shipment || 0)}` },
       {
         title: "Total",
-        value: `${shipment && formatNumber(price + shipment)}`,
+        value: `$ ${formatNumber(price + shipmentValue)}`,
       },
     ],
     title: "Info. valores",
