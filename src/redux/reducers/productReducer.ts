@@ -1,26 +1,40 @@
-import * as actionTypes from "../types/productTypes";
-import { ProductActionTypes } from "../types/productTypes";
+import { Product } from "../../types";
+import {
+  ADD_PRODUCT,
+  ProductActionTypes,
+  SELECT_PRODUCT,
+} from "../types/productTypes";
 
-const initialState = {
-  products: [],
-  selectedProductId: null,
+export type IProductState = {
+  products: Product[];
+  selectedProductId: string;
 };
 
-const productsReducer = (state = initialState, action: ProductActionTypes) => {
+const initialState: IProductState = {
+  products: [],
+  selectedProductId: "",
+};
+
+const productReducer = (
+  state: IProductState = initialState,
+  action: ProductActionTypes
+): IProductState => {
   switch (action.type) {
-    case actionTypes.ADD_PRODUCT:
+    case ADD_PRODUCT:
       return {
         ...state,
-        products: [...state.products, action.payload],
+        products: [action.payload],
       };
-    case actionTypes.SELECT_PRODUCT:
+
+    case SELECT_PRODUCT:
       return {
         ...state,
         selectedProductId: action.payload,
       };
+
     default:
       return state;
   }
 };
 
-export default productsReducer;
+export default productReducer;

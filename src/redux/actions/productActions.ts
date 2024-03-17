@@ -1,16 +1,12 @@
-import { Products } from "../../types";
-import {
-  ADD_PRODUCT,
-  ProductActionTypes,
-  SELECT_PRODUCT,
-} from "../types/productTypes";
+import { Product } from "../../types";
+import { ADD_PRODUCT, SELECT_PRODUCT } from "../types/productTypes";
 
-export const addProduct = (productData: Products): ProductActionTypes => ({
+export const addProduct = (productData: Product) => ({
   type: ADD_PRODUCT,
   payload: productData,
 });
 
-export const selectProduct = (productId: string): ProductActionTypes => ({
+export const selectProduct = (productId: string) => ({
   type: SELECT_PRODUCT,
   payload: productId,
 });

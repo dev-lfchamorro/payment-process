@@ -1,11 +1,11 @@
 import React from "react";
-import { Products } from "../../types";
+import { Product } from "../../types";
 import ProductCard from "../ProductCard";
 import "./styles.scss";
 
 type SectionProductListProps = {
   title: string;
-  productList: Products[];
+  productList: Product[];
 };
 
 const SectionProductList: React.FC<SectionProductListProps> = ({

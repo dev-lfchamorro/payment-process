@@ -1,8 +1,12 @@
 import { combineReducers } from "redux";
-import productsReducer from "./productReducer";
+import productReducer, { IProductState } from "./productReducer";
 
-const rootReducer = combineReducers({
-  products: productsReducer,
+export interface IRootState {
+  products: IProductState;
+}
+
+export const rootReducer = combineReducers({
+  products: productReducer,
 });
 
-export default rootReducer;
+export type RootState = ReturnType<typeof rootReducer>;
