@@ -2,21 +2,27 @@ import React from "react";
 import "./styles.scss";
 
 type InputTextProps = {
+  errorText?: string;
+  hasError?: boolean;
   id: string;
   label?: string;
   maxLength?: number;
   minLength?: number;
   name: string;
+  onChange?: (value: any) => void;
   placeholder?: string;
   type: "text" | "number" | "password";
 };
 
 const InputText: React.FC<InputTextProps> = ({
+  errorText,
+  hasError,
   id,
   label,
   maxLength = 10,
   minLength = 0,
   name,
+  onChange,
   placeholder,
   type,
 }) => {
@@ -24,13 +30,15 @@ const InputText: React.FC<InputTextProps> = ({
     <div className="input-wrapper">
       {label && <label htmlFor={name}>{label}</label>}
       <input
-        type={type}
-        name={name}
         id={id}
-        placeholder={placeholder}
-        minLength={minLength}
         maxLength={maxLength}
+        minLength={minLength}
+        name={name}
+        onChange={onChange}
+        placeholder={placeholder}
+        type={type}
       />
+      {hasError && <span>{errorText}</span>}
     </div>
   );
 };

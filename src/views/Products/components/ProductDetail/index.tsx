@@ -9,10 +9,10 @@ import Footer from "../../../../components/common/Footer";
 import Header from "../../../../components/common/Header";
 import { RootState } from "../../../../redux/reducers";
 import { infoProduct, infoProductValues } from "../../constants";
+import PaymentInfoForm from "../PaymentInfoForm";
 import UserInfoForm from "../UserInfoForm";
 import ImgCreditCard from "./../../../../assets/icons/credit-card.svg";
 import "./styles.scss";
-import PaymentInfoForm from "../PaymentInfoForm";
 
 const ProductDetail: React.FC = () => {
   const { selectedProduct, products } = useSelector(

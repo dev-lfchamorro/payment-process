@@ -1,4 +1,5 @@
 @import "../../../assets/css/mixins.scss";
+@import "../../../assets/css/colors.scss";
 
 .input-wrapper {
   display: flex;
@@ -10,5 +11,11 @@
 
   input {
     @include app-input;
+  }
+
+  span {
+    color: $color-red-validations;
+    font-size: x-small;
+    line-height: 15px;
   }
 }
