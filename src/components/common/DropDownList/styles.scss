@@ -1,0 +1,11 @@
+@import "./../../../assets/css/mixins.scss";
+
+.select-wrapper {
+  label {
+    @include app-label;
+  }
+
+  select {
+    @include app-input;
+  }
+}

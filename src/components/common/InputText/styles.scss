@@ -1,0 +1,14 @@
+@import "../../../assets/css/mixins.scss";
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    @include app-label;
+  }
+
+  input {
+    @include app-input;
+  }
+}
