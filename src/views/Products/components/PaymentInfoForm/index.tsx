@@ -17,6 +17,17 @@ const PaymentInfoForm: React.FC<PaymentInfoFormProps> = ({
     <div className="payment-info-form-container">
       <h3>Ingresa los datos de tu tarjeta</h3>
 
+      {/* <div className="credit-card">
+        <CreditCardFront
+          cardHolder={"Luis Chamor"}
+          cardNumber={4565764}
+          expiry={34}
+          logo={ImgArrowLeftCircle}
+        />
+
+        <CreditCardBack cvv={123} logo={ImgCashCoin} />
+      </div> */}
+
       <InputText
         id="card-number"
         type="number"
@@ -62,6 +73,7 @@ const PaymentInfoForm: React.FC<PaymentInfoFormProps> = ({
           type="number"
           name="cvc"
           label="CVC (Código de seguridad)"
+          maxLength={3}
         />
       </div>
 
@@ -70,6 +82,7 @@ const PaymentInfoForm: React.FC<PaymentInfoFormProps> = ({
         type="text"
         name="card-username"
         label="Nombre en la tarjeta"
+        maxLength={100}
       />
 
       <div className="document-field-wrapper">
@@ -99,6 +112,7 @@ const PaymentInfoForm: React.FC<PaymentInfoFormProps> = ({
         type="number"
         name="installments"
         label="Número de cuotas"
+        maxLength={2}
       />
 
       <div className="btns-wraper">

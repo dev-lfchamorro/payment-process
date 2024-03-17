@@ -4,6 +4,8 @@ import "./styles.scss";
 type InputTextProps = {
   id: string;
   label?: string;
+  maxLength?: number;
+  minLength?: number;
   name: string;
   placeholder?: string;
   type: "text" | "number" | "password";
@@ -12,6 +14,8 @@ type InputTextProps = {
 const InputText: React.FC<InputTextProps> = ({
   id,
   label,
+  maxLength = 10,
+  minLength = 0,
   name,
   placeholder,
   type,
@@ -19,7 +23,14 @@ const InputText: React.FC<InputTextProps> = ({
   return (
     <div className="input-wrapper">
       {label && <label htmlFor={name}>{label}</label>}
-      <input type={type} name={name} id={id} placeholder={placeholder} />
+      <input
+        type={type}
+        name={name}
+        id={id}
+        placeholder={placeholder}
+        minLength={minLength}
+        maxLength={maxLength}
+      />
     </div>
   );
 };

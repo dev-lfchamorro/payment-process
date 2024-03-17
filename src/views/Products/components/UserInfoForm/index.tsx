@@ -28,6 +28,7 @@ const UserInfoForm: React.FC<UserInfoFormProps> = ({ setShowInfoForm }) => {
         name="full-name"
         placeholder="Luis Chamorro"
         label="Nombres y Apellidos"
+        maxLength={100}
       />
 
       <div className="phone-field-wrapper">
@@ -45,6 +46,7 @@ const UserInfoForm: React.FC<UserInfoFormProps> = ({ setShowInfoForm }) => {
             type="number"
             name="phone-number"
             placeholder="311 864 8813"
+            maxLength={10}
           />
         </div>
       </div>
