@@ -20,6 +20,7 @@ export const productsData: ProductsMap = {
       image: ImgSneakers,
       name: "AZ Infusion",
       price: 225999,
+      shipment: 13500,
     },
     {
       brand: "Apple",
@@ -30,6 +31,7 @@ export const productsData: ProductsMap = {
       image: ImgIphone14,
       name: "iPhone 11 Pro Max",
       price: 4325000,
+      shipment: 10500,
     },
     {
       brand: "Louis Vuitton",
@@ -38,6 +40,7 @@ export const productsData: ProductsMap = {
       image: ImgSpringBags,
       name: "Speedy",
       price: 460999,
+      shipment: 5000,
     },
     {
       brand: "GMO",
@@ -46,8 +49,9 @@ export const productsData: ProductsMap = {
       hasDiscount: true,
       id: uuidv4(),
       image: ImgSunGlassess,
-      name: "Speedy",
-      price: 460999,
+      name: "Two Black",
+      price: 286900,
+      shipment: 25000,
     },
   ],
   [EProducsSection.offer]: [
@@ -60,6 +64,7 @@ export const productsData: ProductsMap = {
       image: ImgCoffeMarker,
       name: "Coffestyle",
       price: 225999,
+      shipment: 14000,
     },
     {
       brand: "Norma",
@@ -70,6 +75,7 @@ export const productsData: ProductsMap = {
       image: ImgBooks,
       name: "¿Cuál verdad?",
       price: 38500,
+      shipment: 7000,
     },
     {
       brand: "H House",
@@ -80,6 +86,7 @@ export const productsData: ProductsMap = {
       image: ImgFurniture,
       name: "500 Lí",
       price: 365000,
+      shipment: 0,
     },
     {
       brand: "Adidas",
@@ -90,6 +97,7 @@ export const productsData: ProductsMap = {
       image: ImgSportsSweatshirts,
       name: "Poe Safe",
       price: 85900,
+      shipment: 6500,
     },
   ],
 };
