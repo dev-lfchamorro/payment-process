@@ -4,12 +4,12 @@ import SectionProductList from "../../components/SectionProductList";
 import Footer from "../../components/common/Footer";
 import Header from "../../components/common/Header";
 import ImgProducts from "./../../assets/images/products.avif";
-import { highlightedProducts } from "./constants";
+import { productsData } from "./constants";
 import "./styles.scss";
 
 const Products: React.FC = () => {
-  const highlightedList = highlightedProducts.highlighted || [];
-  const offerList = highlightedProducts.offer || [];
+  const highlightedList = productsData.highlighted || [];
+  const offerList = productsData.offer || [];
 
   return (
     <div className="products-container">

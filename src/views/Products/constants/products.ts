@@ -1,6 +1,6 @@
+import { v4 as uuidv4 } from "uuid";
 import { EProducsSection } from "../../../enums";
 import { Product } from "../../../types";
-import { v4 as uuidv4 } from "uuid";
 import ImgBooks from "./../../../assets/images/products/books.jpg";
 import ImgCoffeMarker from "./../../../assets/images/products/coffe-marker.jpg";
 import ImgFurniture from "./../../../assets/images/products/furniture.jpg";
@@ -10,11 +10,11 @@ import ImgSportsSweatshirts from "./../../../assets/images/products/sports-sweat
 import ImgSpringBags from "./../../../assets/images/products/spring-bags.jpg";
 import ImgSunGlassess from "./../../../assets/images/products/sunglassess.jpg";
 
-type ProductsMap = {
+export type ProductsMap = {
   [key in EProducsSection]: Product[];
 };
 
-export const highlightedProducts: ProductsMap = {
+export const productsData: ProductsMap = {
   [EProducsSection.highlighted]: [
     {
       brand: "Nike",

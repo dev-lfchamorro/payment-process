@@ -1,18 +1,15 @@
 import { Product } from "../../types";
-import {
-  ADD_PRODUCT,
-  ProductActionTypes,
-  SELECT_PRODUCT,
-} from "../types/productTypes";
+import { ProductsMap } from "../../views/Products/constants";
+import { ProductActionTypes, SELECT_PRODUCT } from "../types/productTypes";
 
 export type IProductState = {
-  products: Product[];
-  selectedProductId: string;
+  products: ProductsMap[];
+  selectedProduct: Product | null;
 };
 
 const initialState: IProductState = {
   products: [],
-  selectedProductId: "",
+  selectedProduct: null,
 };
 
 const productReducer = (
@@ -20,16 +17,10 @@ const productReducer = (
   action: ProductActionTypes
 ): IProductState => {
   switch (action.type) {
-    case ADD_PRODUCT:
-      return {
-        ...state,
-        products: [action.payload],
-      };
-
     case SELECT_PRODUCT:
       return {
         ...state,
-        selectedProductId: action.payload,
+        selectedProduct: action.payload,
       };
 
     default:

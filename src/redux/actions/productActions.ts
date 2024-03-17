@@ -1,12 +1,7 @@
 import { Product } from "../../types";
-import { ADD_PRODUCT, SELECT_PRODUCT } from "../types/productTypes";
+import { SELECT_PRODUCT } from "../types/productTypes";
 
-export const addProduct = (productData: Product) => ({
-  type: ADD_PRODUCT,
-  payload: productData,
-});
-
-export const selectProduct = (productId: string) => ({
+export const selectProduct = (productData: Product) => ({
   type: SELECT_PRODUCT,
-  payload: productId,
+  payload: productData,
 });

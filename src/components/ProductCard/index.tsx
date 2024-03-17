@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { paths } from "../../constants";
-import { addProduct } from "../../redux/actions";
+import { selectProduct } from "../../redux/actions";
 import { Product } from "../../types";
 import "./styles.scss";
 
@@ -15,7 +15,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ productList }) => {
   const navigate = useNavigate();
 
   const handleClick = (product: Product) => {
-    dispatch(addProduct(product));
+    dispatch(selectProduct(product));
     navigate(`${paths.products}/${product.id}`, { replace: true });
   };
 
