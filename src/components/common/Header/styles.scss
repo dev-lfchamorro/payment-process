@@ -1,5 +1,7 @@
 @import "../../../assets/css/colors.scss";
 
+$box-shadow: 0px 4px 13px -3px $color-rgba-black-shadows;
+
 #header-container {
   align-items: center;
   background-color: transparent;
@@ -15,16 +17,19 @@
   z-index: 1;
 
   &.fix-header {
+    -moz-box-shadow: $box-shadow;
     background-color: $color-primary;
     padding: 0.6rem 2rem;
+    -webkit-box-shadow: $box-shadow;
+    box-shadow: $box-shadow;
   }
 
   &.sticky {
-    -moz-box-shadow: 0px 4px 13px -3px $color-rgba-black-shadows;
-    -webkit-box-shadow: 0px 4px 13px -3px $color-rgba-black-shadows;
+    -moz-box-shadow: $box-shadow;
+    -webkit-box-shadow: $box-shadow;
     background-color: $color-primary;
     opacity: 0.9;
-    box-shadow: 0px 4px 13px -3px $color-rgba-black-shadows;
+    box-shadow: $box-shadow;
     padding: 0.6rem 2rem;
     transition: all 400ms ease;
   }
