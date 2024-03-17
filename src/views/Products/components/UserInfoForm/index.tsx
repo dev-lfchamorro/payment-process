@@ -5,10 +5,14 @@ import InputText from "../../../../components/common/InputText";
 import ImgArrowRightCircle from "./../../../../assets/icons/arrow-right-circle.svg";
 import "./styles.scss";
 
-const UserInfoForm: React.FC = () => {
+type UserInfoFormProps = {
+  setShowInfoForm: (show: boolean) => void;
+};
+
+const UserInfoForm: React.FC<UserInfoFormProps> = ({ setShowInfoForm }) => {
   return (
     <div className="user-info-form-container">
-      <h3>Ingresa tus datos</h3>
+      <h3>Ingresa tus datos personales</h3>
 
       <InputText
         id="email"
@@ -49,6 +53,7 @@ const UserInfoForm: React.FC = () => {
         className="btn-continue"
         text="Continuar"
         icon={ImgArrowRightCircle}
+        onClick={() => setShowInfoForm(false)}
       />
     </div>
   );

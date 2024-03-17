@@ -12,6 +12,7 @@ import { infoProduct, infoProductValues } from "../../constants";
 import UserInfoForm from "../UserInfoForm";
 import ImgCreditCard from "./../../../../assets/icons/credit-card.svg";
 import "./styles.scss";
+import PaymentInfoForm from "../PaymentInfoForm";
 
 const ProductDetail: React.FC = () => {
   const { selectedProduct, products } = useSelector(
@@ -19,6 +20,7 @@ const ProductDetail: React.FC = () => {
   );
 
   const [isOpenModal, setIsOpenModal] = useState(false);
+  const [showInfoForm, setShowInfoForm] = useState(true);
 
   const { image, name } = selectedProduct || {};
   const detailProductInfo = infoProduct(selectedProduct!);
@@ -73,7 +75,11 @@ const ProductDetail: React.FC = () => {
 
       {isOpenModal && (
         <Modal isOpen={isOpenModal} onClose={handleCloseModal}>
-          <UserInfoForm />
+          {showInfoForm ? (
+            <UserInfoForm setShowInfoForm={setShowInfoForm} />
+          ) : (
+            <PaymentInfoForm setShowInfoForm={setShowInfoForm} />
+          )}
         </Modal>
       )}
 
