@@ -1,23 +1,31 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import Button from "../../../../components/Button";
 import DropDownList from "../../../../components/common/DropDownList";
 import InputText from "../../../../components/common/InputText";
 import { isEmpty, isValidEmail, isValidPhone } from "../../../../helpers";
+import { RootState } from "../../../../redux/reducers";
+import { UserInfo } from "../../../../types";
 import ImgArrowRightCircle from "./../../../../assets/icons/arrow-right-circle.svg";
 import "./styles.scss";
+import { useDispatch } from "react-redux";
+import { setUserInfo } from "../../../../redux/actions";
 
 type UserInfoFormProps = {
   setShowInfoForm: (show: boolean) => void;
 };
 
 const UserInfoForm: React.FC<UserInfoFormProps> = ({ setShowInfoForm }) => {
-  const [formData, setFormData] = useState({
-    email: "",
-    fullname: "",
-    phoneNumber: "",
+  const { userInfo } = useSelector((state: RootState) => state.payments);
+  const dispatch = useDispatch();
+
+  const [formData, setFormData] = useState<UserInfo>({
+    email: userInfo?.email || "",
+    fullname: userInfo?.fullname || "",
+    phoneNumber: userInfo?.phoneNumber || "",
   });
 
-  const [errors, setErrors] = useState({
+  const [errors, setErrors] = useState<UserInfo>({
     email: "",
     fullname: "",
     phoneNumber: "",
@@ -54,7 +62,8 @@ const UserInfoForm: React.FC<UserInfoFormProps> = ({ setShowInfoForm }) => {
       fullname: "",
       phoneNumber: "",
     });
-    return;
+
+    dispatch(setUserInfo(formData));
     setShowInfoForm(false);
   };
 
@@ -72,6 +81,7 @@ const UserInfoForm: React.FC<UserInfoFormProps> = ({ setShowInfoForm }) => {
         onChange={handleChange}
         placeholder="ing.lfchamorro@gmail.com"
         type="text"
+        value={formData.email}
       />
 
       <InputText
@@ -84,6 +94,7 @@ const UserInfoForm: React.FC<UserInfoFormProps> = ({ setShowInfoForm }) => {
         onChange={handleChange}
         placeholder="Luis Chamorro"
         type="text"
+        value={formData.fullname}
       />
 
       <div className="phone-field-wrapper">
@@ -105,6 +116,7 @@ const UserInfoForm: React.FC<UserInfoFormProps> = ({ setShowInfoForm }) => {
             onChange={handleChange}
             placeholder="311 864 8813"
             type="number"
+            value={formData.phoneNumber}
           />
         </div>
       </div>

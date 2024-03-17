@@ -12,6 +12,7 @@ type InputTextProps = {
   onChange?: (value: any) => void;
   placeholder?: string;
   type: "text" | "number" | "password";
+  value?: string | number;
 };
 
 const InputText: React.FC<InputTextProps> = ({
@@ -25,6 +26,7 @@ const InputText: React.FC<InputTextProps> = ({
   onChange,
   placeholder,
   type,
+  value,
 }) => {
   return (
     <div className="input-wrapper">
@@ -37,6 +39,7 @@ const InputText: React.FC<InputTextProps> = ({
         onChange={onChange}
         placeholder={placeholder}
         type={type}
+        value={value}
       />
       {hasError && <span>{errorText}</span>}
     </div>

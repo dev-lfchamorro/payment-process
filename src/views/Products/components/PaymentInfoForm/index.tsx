@@ -29,9 +29,9 @@ const PaymentInfoForm: React.FC<PaymentInfoFormProps> = ({
       </div> */}
 
       <InputText
-        id="card-number"
+        id="cardNumber"
         type="number"
-        name="card-number"
+        name="cardNumber"
         label="Número de la tarjeta"
       />
 
@@ -41,8 +41,8 @@ const PaymentInfoForm: React.FC<PaymentInfoFormProps> = ({
 
           <div className="expiry-fields-area">
             <DropDownList
-              name="expiry-month"
-              id="expiry-month"
+              name="expiryMonth"
+              id="expiryMonth"
               options={[
                 { text: "01", value: "1" },
                 { text: "02", value: "2" },
@@ -54,8 +54,8 @@ const PaymentInfoForm: React.FC<PaymentInfoFormProps> = ({
             />
 
             <DropDownList
-              name="expiry-year"
-              id="expiry-year"
+              name="expiryYear"
+              id="expiryYear"
               options={[
                 { text: "2024", value: "2024" },
                 { text: "2025", value: "2025" },
@@ -78,9 +78,9 @@ const PaymentInfoForm: React.FC<PaymentInfoFormProps> = ({
       </div>
 
       <InputText
-        id="card-username"
+        id="cardUsername"
         type="text"
-        name="card-username"
+        name="cardUsername"
         label="Nombre en la tarjeta"
         maxLength={100}
       />
@@ -90,8 +90,8 @@ const PaymentInfoForm: React.FC<PaymentInfoFormProps> = ({
 
         <div className="fields-wrapper">
           <DropDownList
-            name="document-type"
-            id="document-type"
+            name="documentType"
+            id="documentType"
             options={[
               { text: "CC", value: "CC" },
               { text: "CE", value: "CE" },
@@ -99,9 +99,9 @@ const PaymentInfoForm: React.FC<PaymentInfoFormProps> = ({
           />
 
           <InputText
-            id="documento"
+            id="document"
             type="number"
-            name="documento"
+            name="document"
             placeholder="Ingresa tu documento"
           />
         </div>
