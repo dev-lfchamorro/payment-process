@@ -1,0 +1,60 @@
+@import "./../../../../assets/css/colors.scss";
+@import "./../../../../assets/css/mixins.scss";
+@import "./../../../../assets/css/variables.scss";
+
+.payment-info-form-container {
+  -moz-box-shadow: $box-shadow;
+  -webkit-box-shadow: $box-shadow;
+  border-radius: 5px;
+  border: solid 1px $color-rgba-borders;
+  box-shadow: $box-shadow;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 3rem 2rem;
+  min-width: 314px;
+  padding: 1rem;
+  width: 600px;
+
+  .security-fields-wrapper {
+    display: flex;
+    gap: 1rem;
+
+    .expiry-fields-wrapper {
+      label {
+        @include app-label;
+      }
+
+      .expiry-fields-area {
+        display: flex;
+        gap: 1rem;
+      }
+    }
+  }
+
+  .document-field-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      @include app-label;
+    }
+
+    .fields-wrapper {
+      display: flex;
+      gap: 1rem;
+    }
+  }
+
+  .btns-wraper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+
+    .btn-action {
+      margin: 0 auto;
+      width: 200px;
+    }
+  }
+}
