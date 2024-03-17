@@ -9,6 +9,7 @@ import Footer from "../../../../components/common/Footer";
 import Header from "../../../../components/common/Header";
 import { RootState } from "../../../../redux/reducers";
 import { infoProduct, infoProductValues } from "../../constants";
+import UserInfoForm from "../UserInfoForm";
 import ImgCreditCard from "./../../../../assets/icons/credit-card.svg";
 import "./styles.scss";
 
@@ -72,7 +73,7 @@ const ProductDetail: React.FC = () => {
 
       {isOpenModal && (
         <Modal isOpen={isOpenModal} onClose={handleCloseModal}>
-          <h1>testtt!</h1>
+          <UserInfoForm />
         </Modal>
       )}
 
