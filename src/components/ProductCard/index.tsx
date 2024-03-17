@@ -5,6 +5,7 @@ import { paths } from "../../constants";
 import { selectProduct } from "../../redux/actions";
 import { Product } from "../../types";
 import "./styles.scss";
+import { formatNumber } from "../../helpers";
 
 type ProductCardProps = {
   productList: Product[];
@@ -44,7 +45,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ productList }) => {
             <div className="product-card-detail">
               <span className="product-card-detail-brand">{brand}</span>
               <span className="product-card-detail-name">{name}</span>
-              <span className="product-card-detail-price">{`$COP ${price}`}</span>
+              <span className="product-card-detail-price">{`$COP ${formatNumber(
+                price
+              )}`}</span>
             </div>
             {hasDiscount && discount && (
               <span className="product-card-offer">{`${discount}% DTO`}</span>
