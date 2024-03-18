@@ -1,14 +1,12 @@
 import { render, screen } from "@testing-library/react";
 import { Product } from "../../types";
-import ProductCard from "./index"; // Asumiendo que ProductCard está en el mismo directorio
+import ProductCard from "./index";
 
-// Mock de la función useDispatch
 jest.mock("react-redux", () => ({
   ...jest.requireActual("react-redux"),
   useDispatch: jest.fn(),
 }));
 
-// Mock de la función useNavigate
 jest.mock("react-router-dom", () => ({
   ...jest.requireActual("react-router-dom"),
   useNavigate: jest.fn(),
