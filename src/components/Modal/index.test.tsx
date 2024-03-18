@@ -1,6 +1,5 @@
-import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
-import Modal from "./index"; // Asumiendo que Modal está en el mismo directorio
+import { fireEvent, render, screen } from "@testing-library/react";
+import Modal from "./index";
 
 describe("Modal component", () => {
   test("renders when open", () => {
