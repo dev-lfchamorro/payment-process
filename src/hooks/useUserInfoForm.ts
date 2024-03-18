@@ -17,12 +17,14 @@ export const useUserInfoForm = ({ setShowInfoForm }: useUserInfoFormProps) => {
     email: userInfo?.email || "",
     fullname: userInfo?.fullname || "",
     phoneNumber: userInfo?.phoneNumber || "",
+    phoneCode: userInfo?.phoneCode || "",
   });
 
   const [errors, setErrors] = useState<UserInfo>({
     email: "",
     fullname: "",
     phoneNumber: "",
+    phoneCode: "",
   });
 
   const handleChange = (e: any) => {
@@ -55,6 +57,7 @@ export const useUserInfoForm = ({ setShowInfoForm }: useUserInfoFormProps) => {
       email: "",
       fullname: "",
       phoneNumber: "",
+      phoneCode: "",
     });
 
     dispatch(setUserInfo(formData));
