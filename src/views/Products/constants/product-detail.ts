@@ -51,7 +51,7 @@ export const infoPayment = (payment: SummaryPayment): ListItemTextProps => {
       { title: "Teléfono", value: phoneNumber },
       {
         title: validCreditCard(cardNumber),
-        value: `******${cardNumber.slice(-4)}`,
+        value: `******${cardNumber && cardNumber.slice(-4)}`,
       },
       {
         title: "Cuotas",
@@ -84,7 +84,7 @@ export const infoTransaction = (
       { title: "Teléfono", value: phoneNumber },
       {
         title: validCreditCard(cardNumber),
-        value: `******${cardNumber.slice(-4)}`,
+        value: `******${cardNumber && cardNumber.slice(-4)}`,
       },
       {
         title: "ID Transacción",
