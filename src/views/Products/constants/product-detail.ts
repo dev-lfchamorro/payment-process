@@ -73,6 +73,7 @@ export const infoTransaction = (
     fullname,
     phoneNumber,
     idTransaction,
+    status,
   } = transaction || {};
 
   return {
@@ -88,6 +89,14 @@ export const infoTransaction = (
       {
         title: "ID Transacción",
         value: idTransaction,
+      },
+      {
+        title: "Fecha",
+        value: `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`,
+      },
+      {
+        title: "Estado",
+        value: status.toUpperCase(),
       },
     ],
     title: "Detalle de la transacción",

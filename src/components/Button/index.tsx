@@ -11,7 +11,7 @@ export type ButtonProps = {
 
 const Button: React.FC<ButtonProps> = ({ className, icon, text, onClick }) => {
   return (
-    <div className={`${className}`} onClick={onClick}>
+    <div className={`${className || ""}`} onClick={onClick}>
       <button className="payment-btn">
         <Icon pathIcon={icon} size={14} brightness={1} />
         {text}
