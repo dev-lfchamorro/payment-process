@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import Backdrop from "../../components/Backdrop";
 import CoverContent from "../../components/CoverContent/idex";
 import SectionProductList from "../../components/SectionProductList";
 import Footer from "../../components/common/Footer";
@@ -14,6 +15,7 @@ import "./styles.scss";
 const Products: React.FC = () => {
   const dispatch = useDispatch();
   const { products } = useSelector((state: RootState) => state.products);
+  const { showSummary } = useSelector((state: RootState) => state.payments);
 
   const [sectionProductList, setSectionProductList] =
     useState<ProductsMap | null>(products);
@@ -51,6 +53,8 @@ const Products: React.FC = () => {
           title="Aprovecha nuestras ofertas"
         />
       )}
+
+      {showSummary && <Backdrop />}
 
       <Footer />
     </div>

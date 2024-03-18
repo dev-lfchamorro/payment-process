@@ -1,11 +1,16 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import CoverContent from "../../components/CoverContent/idex";
+import Footer from "../../components/common/Footer";
 import Header from "../../components/common/Header";
+import { RootState } from "../../redux/reducers";
 import ImgContact from "./../../assets/images/contact.avif";
 import "./styles.scss";
-import Footer from "../../components/common/Footer";
+import Backdrop from "../../components/Backdrop";
 
 const Contact: React.FC = () => {
+  const { showSummary } = useSelector((state: RootState) => state.payments);
+
   return (
     <div className="contact-container">
       <Header />
@@ -88,6 +93,8 @@ const Contact: React.FC = () => {
           ullam quibusdam blanditiis vel?
         </p>
       </section>
+
+      {showSummary && <Backdrop />}
 
       <Footer />
     </div>
