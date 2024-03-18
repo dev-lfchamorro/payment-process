@@ -2,10 +2,10 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { paths } from "../../constants";
+import { formatNumber } from "../../helpers";
 import { selectProduct } from "../../redux/actions";
 import { Product } from "../../types";
 import "./styles.scss";
-import { formatNumber } from "../../helpers";
 
 type ProductCardProps = {
   productList: Product[];
