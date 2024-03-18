@@ -1,54 +1,28 @@
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { showSummary } from "../../redux/actions";
-import { RootState } from "../../redux/reducers";
-import {
-  infoPayment,
-  infoProduct,
-  infoProductValues,
-} from "../../views/Products/constants";
+import { useSummary } from "../../hooks";
 import Button from "../Button";
 import Icon from "../Icon";
 import ListItemText from "../ListItemText";
 import IconChevronDown from "./../../assets/icons/chevron-double-down.svg";
 import IconChevronUp from "./../../assets/icons/chevron-double-up.svg";
 import IconCurrencyDollar from "./../../assets/icons/currency-dollar.svg";
+import Loader from "./../../assets/icons/loader-rolling.svg";
 import IconX from "./../../assets/icons/x.svg";
 import "./styles.scss";
 
 const Backdrop: React.FC = () => {
-  const { selectedProduct } = useSelector((state: RootState) => state.products);
-  const dispatch = useDispatch();
-
-  const { paymentInfo, userInfo } = useSelector(
-    (state: RootState) => state.payments
-  );
-  const { cardNumber, document, documentType, installments } =
-    paymentInfo || {};
-  const { email, fullname, phoneNumber } = userInfo || {};
-
-  const [hiddenClass, setHiddenClass] = useState<"maximize" | "minimize">(
-    "maximize"
-  );
-
-  const { image, name } = selectedProduct || {};
-  const detailProductInfo = infoProduct(selectedProduct!);
-  const paymentProductInfo = infoProductValues(selectedProduct!);
-  const paymentSummary = infoPayment({
-    cardNumber: cardNumber!,
-    document: document!,
-    documentType: documentType!,
-    email: email!,
-    fullname: fullname!,
-    installments: installments!,
-    phoneNumber: phoneNumber!,
-  });
-
-  const handleMiniize = () => setHiddenClass("minimize");
-
-  const handleMaximize = () => setHiddenClass("maximize");
-
-  const handleClose = () => dispatch(showSummary(false));
+  const {
+    detailProductInfo,
+    handleClose,
+    handleConfirmPayment,
+    handleMaximize,
+    handleMiniize,
+    hiddenClass,
+    image,
+    loader,
+    name,
+    paymentProductInfo,
+    paymentSummary,
+  } = useSummary();
 
   return (
     <div className={`backdrop-container ${hiddenClass}`}>
@@ -96,7 +70,15 @@ const Backdrop: React.FC = () => {
         />
       </div>
 
-      <Button icon={IconCurrencyDollar} text="CONFIRMAR PAGO" />
+      {!loader && (
+        <Button
+          icon={IconCurrencyDollar}
+          text="CONFIRMAR PAGO"
+          onClick={handleConfirmPayment}
+        />
+      )}
+
+      {loader && <img src={Loader} alt="" width={40} height={40} />}
     </div>
   );
 };

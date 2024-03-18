@@ -4,7 +4,7 @@ import CheckboxComponent from "../../../../components/common/Checkbox";
 import DropDownList from "../../../../components/common/DropDownList";
 import InputText from "../../../../components/common/InputText";
 import { ValidCreditCard } from "../../../../helpers";
-import { usePaymentInfoForm } from "../../../../hooks/usePaymentInfoForm";
+import { usePaymentInfoForm } from "../../../../hooks";
 import ImgArrowLeftCircle from "./../../../../assets/icons/arrow-left-circle.svg";
 import ImgCashCoin from "./../../../../assets/icons/cash-coin.svg";
 import ImgMasterCard from "./../../../../assets/images/mastercard-logo.png";
