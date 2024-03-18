@@ -1,0 +1,53 @@
+@import "../../../assets/css/colors.scss";
+@import "../../../assets/css/mixins.scss";
+
+.footer-container {
+  background-color: $color-rgba-gray-section;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding: 2rem;
+  width: calc(100% - 4rem);
+
+  .footer-redirects {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-around;
+    padding: 1rem;
+    width: 100%;
+  }
+
+  hr {
+    background-color: $color-rgba-black-bg-cards;
+    height: 1px;
+    width: 100%;
+  }
+
+  .footer-legal {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    justify-content: space-between;
+
+    &-copyright {
+      font-size: small;
+    }
+
+    &-social-media {
+      display: flex;
+      gap: 1rem;
+    }
+  }
+}
+
+@include mq-small-device {
+  .footer-container {
+    .footer-legal {
+      justify-content: center;
+    }
+  }
+}

@@ -11,6 +11,8 @@ body {
   overflow-x: hidden;
   padding: 0;
   scroll-behavior: smooth;
+  color: $color-text;
+  background-color: $color-backgorund-document;
 }
 
 #root,
@@ -33,12 +35,12 @@ h3,
 h4,
 h5,
 h6 {
-  margin-block-end: inherit;
-  margin-block-start: inherit;
-  margin-inline-start: inherit;
-  margin-inline-end: inherit;
-  padding-inline-start: inherit;
-  padding-inline-end: inherit;
+  margin-block-end: initial;
+  margin-block-start: initial;
+  margin-inline-start: initial;
+  margin-inline-end: initial;
+  padding-inline-start: initial;
+  padding-inline-end: initial;
 }
 
 ul,
@@ -57,7 +59,7 @@ code {
 
 // Scroll
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-track {

@@ -3,10 +3,19 @@ $color-primary: #8bc34a;
 $color-secondary: #ffb74d;
 $color-tertiary: #4fc3f7;
 $color-text: #333;
+$color-labels: #35333394;
+$color-placeholder: #35333358;
+$color-backgorund-document: #f1f1f1;
 
 // ** General colors **
-$color-blue-dark: #0f0e24;
+$color-blue-dark: #11240e;
 $color-white: #fff;
+$color-red-validations: #e51616de;
 
 // ** Transparents **
+$color-rgba-black-bg-cards: rgba(0, 0, 0, 0.4);
+$color-rgba-black-shadows: rgba(0, 0, 0, 0.6);
+$color-rgba-gray-section: rgba(51, 51, 51, 0.075);
+$color-rgba-tertiary-sections: rgba(80, 194, 247, 0.048);
 $color-rgba-tertiary: rgba(51, 51, 51, 0.85);
+$color-rgba-borders: rgba(51, 51, 51, 0.118);

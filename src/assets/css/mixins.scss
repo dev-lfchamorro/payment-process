@@ -1,0 +1,134 @@
+@import "./colors.scss";
+
+//  ** Flexbox **
+@mixin full-flex-dimensions {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-start;
+  overflow-y: auto;
+  width: 100%;
+}
+
+@mixin flex-row-center {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+@mixin flex-row-end-center {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+@mixin flex-row-space-between-center {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+@mixin flex-row-space-evenly-center {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  justify-content: space-evenly;
+}
+
+@mixin flex-column-center {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+}
+
+@mixin flex-column-start {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+// ** Media queries **
+@mixin mq-extra-small-device {
+  // Extra small devices (portrait phones, less than 576px)
+  @media (max-width: 576px) {
+    @content;
+  }
+}
+
+@mixin mq-small-device {
+  // Small devices (landscape phones, less than 768px)
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin mq-medium-device {
+  // Medium devices (tablets, less than 992px)
+  @media (max-width: 992px) {
+    @content;
+  }
+}
+
+@mixin mq-large-device {
+  // Large devices (desktops, less than 1200px)
+  @media (max-width: 1200px) {
+    @content;
+  }
+}
+
+// ** Forms **
+@mixin app-input {
+  padding: 0.8rem 2rem;
+  border-radius: 5px;
+  border: solid 1px $color-labels;
+  outline: none;
+
+  &::placeholder {
+    color: $color-placeholder;
+    font-style: italic;
+  }
+}
+@mixin app-label {
+  color: $color-labels;
+  font-size: small;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+// ** Universals **
+@mixin cover-content-styles($text-color) {
+  @include flex-column-center;
+  color: $text-color;
+  font-size: 25px;
+  font-weight: 600;
+  gap: 1rem;
+  padding: 2rem;
+  position: absolute;
+  text-align: center;
+  transition: all 200ms ease;
+
+  .cover-content-btn {
+    border-radius: 5px;
+    width: 250px;
+  }
+}
+
+@mixin cover-content-styles-mq-small-device {
+  font-size: 16px;
+
+  .cover-content-btn {
+    padding: 10px;
+    width: 190px;
+
+    span {
+      font-size: 16px !important;
+    }
+  }
+}

@@ -1,0 +1,34 @@
+@import "../../assets/css/colors.scss";
+
+.logo {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  .logo-name {
+    border: 2px solid $color-white;
+    color: $color-white;
+    display: flex;
+    font-size: 24px;
+    gap: 5px;
+    justify-content: center;
+    padding: 5px 8px;
+    width: 100%;
+
+    span {
+      color: $color-secondary;
+      font-weight: bold;
+    }
+  }
+
+  .logo-slogan {
+    border: none;
+    color: $color-secondary;
+    display: flex;
+    font-size: 10px;
+    line-height: 15px;
+    font-weight: 600;
+  }
+}
