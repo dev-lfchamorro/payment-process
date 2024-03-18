@@ -35,3 +35,42 @@
     width: 200px;
   }
 }
+
+@include mq-small-device {
+  .user-info-form-container {
+    width: 430px;
+  }
+}
+
+@include mq-extra-small-device {
+  .user-info-form-container {
+    width: 315px;
+
+    h3 {
+      width: 230px;
+      margin: 0 auto;
+    }
+
+    .input-wrapper {
+      margin: 0 auto;
+      width: 230px;
+    }
+
+    .phone-field-wrapper {
+      label {
+        width: 230px;
+        margin: 0 auto;
+      }
+
+      .fields-wrapper {
+        flex-wrap: wrap;
+        gap: 10px;
+
+        .select-wrapper {
+          width: 230px;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}

@@ -64,3 +64,60 @@
     }
   }
 }
+
+@include mq-small-device {
+  .payment-info-form-container {
+    width: 430px;
+
+    .security-fields-wrapper {
+      flex-wrap: wrap;
+    }
+
+    .document-field-wrapper .fields-wrapper {
+      flex-wrap: wrap;
+    }
+  }
+}
+
+@include mq-extra-small-device {
+  .payment-info-form-container {
+    width: 300px;
+    overflow-y: auto;
+
+    h3 {
+      width: 230px;
+      margin: 0 auto;
+    }
+
+    .security-fields-wrapper {
+      .expiry-fields-wrapper {
+        width: 230px;
+        margin: 0 auto;
+
+        .expiry-fields-area {
+          flex-wrap: wrap;
+        }
+      }
+    }
+
+    .input-wrapper {
+      margin: 0 auto;
+      width: 230px;
+    }
+
+    .document-field-wrapper {
+      width: 230px;
+      margin: 0 auto;
+    }
+
+    .btns-wraper {
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .checkbox-wrapper {
+      width: 200px;
+      margin: 0 auto;
+    }
+  }
+}

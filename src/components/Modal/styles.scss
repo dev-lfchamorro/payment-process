@@ -1,4 +1,5 @@
 @import "../../assets/css/colors.scss";
+@import "../../assets/css/mixins.scss";
 
 .modal-overlay {
   align-items: center;
@@ -44,6 +45,17 @@
       gap: 1rem;
       justify-content: center;
       padding: 0.5rem;
+    }
+  }
+}
+
+@include mq-extra-small-device {
+  .modal-overlay {
+    .modal-content {
+      padding: 0.5rem;
+      width: 260px;
+      height: 715px;
+      overflow: hidden;
     }
   }
 }
