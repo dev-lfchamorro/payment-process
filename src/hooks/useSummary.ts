@@ -8,6 +8,7 @@ import {
   infoProduct,
   infoProductValues,
 } from "../views/Products/constants";
+import { paths } from "../constants";
 
 export const useSummary = () => {
   const { selectedProduct } = useSelector((state: RootState) => state.products);
@@ -51,7 +52,7 @@ export const useSummary = () => {
     setTimeout(() => {
       setLoader(false);
       dispatch(showSummary(false));
-      navigate("/contact");
+      navigate(paths.transactionStatus);
     }, 1000);
   };
 

@@ -4,4 +4,5 @@ export const paths = {
   productDetail: "/products/:productId",
   products: "/products",
   root: "/",
+  transactionStatus: "/transaction-status",
 };
