@@ -8,7 +8,7 @@ export type CheckboxProps = {
 };
 
 const Checkbox: React.FC<CheckboxProps> = ({ children, id, name }) => {
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(true);
 
   const handleChange = () => {
     setChecked(!checked);
