@@ -52,7 +52,13 @@ const UserInfoForm: React.FC<UserInfoFormProps> = ({ setShowInfoForm }) => {
           <DropDownList
             name="phoneCode"
             id="phoneCode"
-            options={[{ text: "(+57) 🇨🇴", value: "57" }]}
+            options={[
+              { text: "(+57) 🇨🇴", value: "57" },
+              { text: "(+55) 🇧🇷", value: "55" },
+              { text: "(+54) 🇦🇷", value: "54" },
+            ]}
+            value={formData.phoneCode}
+            onChange={handleChange}
           />
 
           <InputText

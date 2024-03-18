@@ -16,6 +16,12 @@
   padding: 1rem;
   width: 600px;
 
+  .card-logo {
+    height: 50px;
+    margin: 0 auto;
+    width: 120px;
+  }
+
   .security-fields-wrapper {
     display: flex;
     gap: 1rem;
