@@ -78,7 +78,10 @@ const ProductDetail: React.FC = () => {
           {showInfoForm ? (
             <UserInfoForm setShowInfoForm={setShowInfoForm} />
           ) : (
-            <PaymentInfoForm setShowInfoForm={setShowInfoForm} />
+            <PaymentInfoForm
+              setShowInfoForm={setShowInfoForm}
+              setIsOpenModal={setIsOpenModal}
+            />
           )}
         </Modal>
       )}

@@ -13,14 +13,17 @@ import "./styles.scss";
 
 type PaymentInfoFormProps = {
   setShowInfoForm: (show: boolean) => void;
+  setIsOpenModal: (show: boolean) => void;
 };
 
 const PaymentInfoForm: React.FC<PaymentInfoFormProps> = ({
   setShowInfoForm,
+  setIsOpenModal,
 }) => {
   const { errors, formData, handleChange, handleSave, creditCardBranch } =
     usePaymentInfoForm({
       setShowInfoForm,
+      setIsOpenModal,
     });
 
   return (
