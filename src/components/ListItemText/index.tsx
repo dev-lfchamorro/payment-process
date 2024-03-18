@@ -13,7 +13,10 @@ const ListItemText: React.FC<ListItemTextProps> = ({
   title,
 }) => {
   return (
-    <div className={`list-item-text-container ${className}`}>
+    <div
+      className={`list-item-text-container ${className || ""}`}
+      data-testid="list-item-text-container"
+    >
       <h2>{title}</h2>
       <hr />
       <ul>

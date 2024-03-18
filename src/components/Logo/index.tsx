@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./styles.scss";
 import { paths } from "../../constants";
+import "./styles.scss";
 
 type LogoProps = {
   primaryText?: string;

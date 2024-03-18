@@ -24,7 +24,7 @@ const Icon: React.FC<IconProps> = ({
     : "brightness(0) invert(1)";
 
   return (
-    <div className={iconClasses} onClick={onClick}>
+    <div className={iconClasses} onClick={onClick} data-testid="icon-container">
       <img
         alt="Icon"
         height={size}
