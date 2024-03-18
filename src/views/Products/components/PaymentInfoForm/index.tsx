@@ -1,9 +1,14 @@
 import React from "react";
 import Button from "../../../../components/Button";
+import CheckboxComponent from "../../../../components/common/Checkbox";
 import DropDownList from "../../../../components/common/DropDownList";
 import InputText from "../../../../components/common/InputText";
+import { ValidCreditCard } from "../../../../helpers";
+import { usePaymentInfoForm } from "../../../../hooks/usePaymentInfoForm";
 import ImgArrowLeftCircle from "./../../../../assets/icons/arrow-left-circle.svg";
 import ImgCashCoin from "./../../../../assets/icons/cash-coin.svg";
+import ImgMasterCard from "./../../../../assets/images/mastercard-logo.png";
+import ImgVisa from "./../../../../assets/images/visa-logo.png";
 import "./styles.scss";
 
 type PaymentInfoFormProps = {
@@ -13,26 +18,36 @@ type PaymentInfoFormProps = {
 const PaymentInfoForm: React.FC<PaymentInfoFormProps> = ({
   setShowInfoForm,
 }) => {
+  const { errors, formData, handleChange, handleSave, creditCardBranch } =
+    usePaymentInfoForm({
+      setShowInfoForm,
+    });
+
   return (
     <div className="payment-info-form-container">
       <h3>Ingresa los datos de tu tarjeta</h3>
 
-      {/* <div className="credit-card">
-        <CreditCardFront
-          cardHolder={"Luis Chamor"}
-          cardNumber={4565764}
-          expiry={34}
-          logo={ImgArrowLeftCircle}
+      {creditCardBranch === ValidCreditCard.Mastercard && (
+        <img
+          className="card-logo"
+          src={ImgMasterCard}
+          alt={ValidCreditCard.Mastercard}
         />
+      )}
 
-        <CreditCardBack cvv={123} logo={ImgCashCoin} />
-      </div> */}
+      {creditCardBranch === ValidCreditCard.Visa && (
+        <img className="card-logo" src={ImgVisa} alt={ValidCreditCard.Visa} />
+      )}
 
       <InputText
+        errorText={errors.cardNumber && errors.cardNumber}
+        hasError={errors.cardNumber ? true : false}
         id="cardNumber"
-        type="number"
-        name="cardNumber"
         label="Número de la tarjeta"
+        name="cardNumber"
+        onChange={handleChange}
+        type="number"
+        value={formData.cardNumber}
       />
 
       <div className="security-fields-wrapper">
@@ -51,6 +66,8 @@ const PaymentInfoForm: React.FC<PaymentInfoFormProps> = ({
                 { text: "05", value: "5" },
                 { text: "06", value: "6" },
               ]}
+              value={formData.expiryMonth}
+              onChange={handleChange}
             />
 
             <DropDownList
@@ -64,25 +81,35 @@ const PaymentInfoForm: React.FC<PaymentInfoFormProps> = ({
                 { text: "2028", value: "2028" },
                 { text: "2029", value: "2029" },
               ]}
+              value={formData.expiryYear}
+              onChange={handleChange}
             />
           </div>
         </div>
 
         <InputText
+          errorText={errors.cvc && errors.cvc}
           id="cvc"
-          type="number"
-          name="cvc"
           label="CVC (Código de seguridad)"
           maxLength={3}
+          name="cvc"
+          onChange={handleChange}
+          type="number"
+          hasError={errors.cvc ? true : false}
+          value={formData.cvc}
         />
       </div>
 
       <InputText
+        errorText={errors.cardUsername && errors.cardUsername}
         id="cardUsername"
-        type="text"
-        name="cardUsername"
         label="Nombre en la tarjeta"
         maxLength={100}
+        name="cardUsername"
+        onChange={handleChange}
+        type="text"
+        hasError={errors.cardUsername ? true : false}
+        value={formData.cardUsername}
       />
 
       <div className="document-field-wrapper">
@@ -96,24 +123,42 @@ const PaymentInfoForm: React.FC<PaymentInfoFormProps> = ({
               { text: "CC", value: "CC" },
               { text: "CE", value: "CE" },
             ]}
+            value={formData.documentType}
+            onChange={handleChange}
           />
 
           <InputText
+            errorText={errors.document && errors.document}
             id="document"
-            type="number"
             name="document"
             placeholder="Ingresa tu documento"
+            type="number"
+            hasError={errors.document ? true : false}
+            onChange={handleChange}
+            value={formData.document}
           />
         </div>
       </div>
 
       <InputText
+        errorText={errors.installments && errors.installments}
+        hasError={errors.installments ? true : false}
         id="installments"
-        type="number"
-        name="installments"
         label="Número de cuotas"
         maxLength={2}
+        name="installments"
+        onChange={handleChange}
+        type="number"
+        value={formData.installments}
       />
+
+      <CheckboxComponent id="termsAndPolicies" name="termsAndPolicies">
+        <span>
+          Acepto haber leído los{" "}
+          <b>Términos y condiciones y la política de privacidad</b> para hacer
+          este pago.
+        </span>
+      </CheckboxComponent>
 
       <div className="btns-wraper">
         <Button
@@ -127,7 +172,7 @@ const PaymentInfoForm: React.FC<PaymentInfoFormProps> = ({
           className="btn-action"
           text="PAGAR"
           icon={ImgCashCoin}
-          onClick={() => setShowInfoForm(false)}
+          onClick={handleSave}
         />
       </div>
     </div>
