@@ -25,3 +25,14 @@ export type SummaryPayment = {
   documentType: string;
   installments: string;
 };
+
+export type TransactionStatus = {
+  cardNumber: string;
+  document: string;
+  documentType: string;
+  email: string;
+  fullname: string;
+  idTransaction: string;
+  phoneNumber: string;
+  status: "success" | "failed" | "pending";
+};
