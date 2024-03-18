@@ -32,8 +32,9 @@ const Modal: React.FC<ModalProps> = ({ children, isOpen, onClose }) => {
     <div
       className={`modal-overlay ${isModalActive ? "active" : ""}`}
       onClick={handleClose}
+      data-testid="modal-overlay"
     >
-      <div className="modal-container">
+      <div className="modal-container" data-testid="modal-container">
         <Icon
           pathIcon={IconX}
           size={15}
@@ -41,7 +42,9 @@ const Modal: React.FC<ModalProps> = ({ children, isOpen, onClose }) => {
           className="close-button"
         />
 
-        <div className="modal-content">{children}</div>
+        <div className="modal-content" data-testid="modal-content">
+          {children}
+        </div>
       </div>
     </div>
   );
