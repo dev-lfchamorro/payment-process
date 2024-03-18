@@ -1,6 +1,6 @@
 import { ListItemTextProps } from "../../../components/ListItemText";
-import { formatNumber } from "../../../helpers";
-import { Product } from "../../../types";
+import { formatNumber, validCreditCard } from "../../../helpers";
+import { Product, SummaryPayment } from "../../../types";
 
 export const infoProduct = (product: Product): ListItemTextProps => {
   const { brand, category, discount, name } = product || {};
@@ -29,5 +29,35 @@ export const infoProductValues = (product: Product): ListItemTextProps => {
       },
     ],
     title: "Info. valores",
+  };
+};
+
+export const infoPayment = (payment: SummaryPayment): ListItemTextProps => {
+  const {
+    cardNumber,
+    document,
+    documentType,
+    email,
+    fullname,
+    installments,
+    phoneNumber,
+  } = payment || {};
+
+  return {
+    itemList: [
+      { title: "Nombre", value: fullname },
+      { title: "Documento", value: `${documentType} ${document}` },
+      { title: "Email", value: email },
+      { title: "Teléfono", value: phoneNumber },
+      {
+        title: validCreditCard(cardNumber),
+        value: `******${cardNumber.slice(-4)}`,
+      },
+      {
+        title: "Cuotas",
+        value: installments,
+      },
+    ],
+    title: "Info. pago",
   };
 };
