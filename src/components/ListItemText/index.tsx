@@ -22,7 +22,7 @@ const ListItemText: React.FC<ListItemTextProps> = ({
             {!discount && <span className="title-text">{title}: </span>}
 
             {!discount && (
-              <span>
+              <span className="value-text">
                 <i>{value}</i>
               </span>
             )}

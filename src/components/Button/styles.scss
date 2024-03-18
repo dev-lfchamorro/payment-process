@@ -1,0 +1,21 @@
+@import "./../../assets/css/colors.scss";
+@import "./../../assets/css/mixins.scss";
+
+.payment-btn {
+  @include flex-row-center;
+  background-color: $color-secondary;
+  border-radius: 15px;
+  border: solid 2px $color-secondary;
+  cursor: pointer;
+  font-weight: 800;
+  margin: 0 auto;
+  max-width: 400px;
+  padding: 0.7rem 10px;
+  transition: all 0.5s ease;
+  width: 100%;
+
+  &:hover {
+    background-color: $color-white;
+    border: solid 2px $color-tertiary;
+  }
+}

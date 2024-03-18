@@ -1,9 +1,5 @@
 import { Product, ProductsMap } from "../../types";
-import {
-  ProductActionTypes,
-  SELECT_PRODUCT,
-  SET_PRODUCT_LIST,
-} from "../types/productTypes";
+import { ProductActionTypes, SELECT_PRODUCT, SET_PRODUCT_LIST } from "../types";
 
 export type IProductState = {
   products: ProductsMap | null;

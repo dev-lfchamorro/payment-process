@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import BlockHeaderSpace from "../../../../components/BlockHeaderSpace";
+import Button from "../../../../components/Button";
 import ListItemText from "../../../../components/ListItemText";
+import Modal from "../../../../components/Modal";
 import SectionProductList from "../../../../components/SectionProductList";
 import Footer from "../../../../components/common/Footer";
 import Header from "../../../../components/common/Header";
 import { RootState } from "../../../../redux/reducers";
 import { infoProduct, infoProductValues } from "../../constants";
+import PaymentInfoForm from "../PaymentInfoForm";
+import UserInfoForm from "../UserInfoForm";
+import ImgCreditCard from "./../../../../assets/icons/credit-card.svg";
 import "./styles.scss";
 
 const ProductDetail: React.FC = () => {
@@ -14,9 +19,15 @@ const ProductDetail: React.FC = () => {
     (state: RootState) => state.products
   );
 
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [showInfoForm, setShowInfoForm] = useState(true);
+
   const { image, name } = selectedProduct || {};
   const detailProductInfo = infoProduct(selectedProduct!);
   const paymentProductInfo = infoProductValues(selectedProduct!);
+
+  const handleOpenModal = () => setIsOpenModal(true);
+  const handleCloseModal = () => setIsOpenModal(false);
 
   return (
     <div className="product-detail-container">
@@ -38,11 +49,19 @@ const ProductDetail: React.FC = () => {
           />
         </div>
 
-        <ListItemText
-          className="product-payment-method"
-          itemList={paymentProductInfo.itemList}
-          title={paymentProductInfo.title}
-        />
+        <div className="pay-detail">
+          <ListItemText
+            className="product-payment-method"
+            itemList={paymentProductInfo.itemList}
+            title={paymentProductInfo.title}
+          />
+
+          <Button
+            icon={ImgCreditCard}
+            text="Paga con tarjeta de crédito"
+            onClick={handleOpenModal}
+          />
+        </div>
       </div>
 
       {products && (
@@ -52,6 +71,16 @@ const ProductDetail: React.FC = () => {
             title="Podría interesarte"
           />
         </div>
+      )}
+
+      {isOpenModal && (
+        <Modal isOpen={isOpenModal} onClose={handleCloseModal}>
+          {showInfoForm ? (
+            <UserInfoForm setShowInfoForm={setShowInfoForm} />
+          ) : (
+            <PaymentInfoForm setShowInfoForm={setShowInfoForm} />
+          )}
+        </Modal>
       )}
 
       <Footer />
