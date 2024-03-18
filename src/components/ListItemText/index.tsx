@@ -19,7 +19,7 @@ const ListItemText: React.FC<ListItemTextProps> = ({
       <ul>
         {itemList.map(({ title, value, discount }, idx) => (
           <li key={idx + 1}>
-            {!discount && <span className="title-text">{title}: </span>}
+            {!discount && <span className="title-text">{title} </span>}
 
             {!discount && (
               <span className="value-text">

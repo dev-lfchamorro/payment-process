@@ -15,3 +15,13 @@ export type UserInfo = {
   phoneNumber: string;
   phoneCode: string;
 };
+
+export type SummaryPayment = {
+  email: string;
+  fullname: string;
+  phoneNumber: string;
+  cardNumber: string;
+  document: string;
+  documentType: string;
+  installments: string;
+};

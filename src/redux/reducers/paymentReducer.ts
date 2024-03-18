@@ -1,14 +1,21 @@
 import { PaymentInfo, UserInfo } from "../../types";
-import { PaymentActionTypes, SET_PAYMENT_INFO, SET_USER_INFO } from "../types";
+import {
+  PaymentActionTypes,
+  SET_PAYMENT_INFO,
+  SET_USER_INFO,
+  SHOW_SUMMARY,
+} from "../types";
 
 export type IPaymentState = {
   userInfo: UserInfo | null;
   paymentInfo: PaymentInfo | null;
+  showSummary: boolean;
 };
 
 const initialState: IPaymentState = {
   paymentInfo: null,
   userInfo: null,
+  showSummary: false,
 };
 
 const paymentReducer = (
@@ -26,6 +33,12 @@ const paymentReducer = (
       return {
         ...state,
         userInfo: action.payload,
+      };
+
+    case SHOW_SUMMARY:
+      return {
+        ...state,
+        showSummary: action.payload,
       };
 
     default:

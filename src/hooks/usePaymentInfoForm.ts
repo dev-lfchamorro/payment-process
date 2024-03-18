@@ -1,16 +1,18 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ValidCreditCard, isEmpty, validCreditCard } from "../helpers";
-import { setPaymentInfo } from "../redux/actions";
+import { setPaymentInfo, showSummary } from "../redux/actions";
 import { RootState } from "../redux/reducers";
 import { PaymentInfo } from "../types";
 
 type usePaymentInfoFormProps = {
   setShowInfoForm: (show: boolean) => void;
+  setIsOpenModal: (show: boolean) => void;
 };
 
 export const usePaymentInfoForm = ({
   setShowInfoForm,
+  setIsOpenModal,
 }: usePaymentInfoFormProps) => {
   const { paymentInfo } = useSelector((state: RootState) => state.payments);
   const dispatch = useDispatch();
@@ -134,7 +136,10 @@ export const usePaymentInfoForm = ({
     });
 
     dispatch(setPaymentInfo(formData));
+    dispatch(showSummary(true));
+
     setShowInfoForm(false);
+    setIsOpenModal(false);
   };
 
   return {

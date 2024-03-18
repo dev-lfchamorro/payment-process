@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import Backdrop from "../../../../components/Backdrop/index";
 import BlockHeaderSpace from "../../../../components/BlockHeaderSpace";
 import Button from "../../../../components/Button";
 import ListItemText from "../../../../components/ListItemText";
@@ -18,6 +19,8 @@ const ProductDetail: React.FC = () => {
   const { selectedProduct, products } = useSelector(
     (state: RootState) => state.products
   );
+
+  const { showSummary } = useSelector((state: RootState) => state.payments);
 
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [showInfoForm, setShowInfoForm] = useState(true);
@@ -78,10 +81,15 @@ const ProductDetail: React.FC = () => {
           {showInfoForm ? (
             <UserInfoForm setShowInfoForm={setShowInfoForm} />
           ) : (
-            <PaymentInfoForm setShowInfoForm={setShowInfoForm} />
+            <PaymentInfoForm
+              setShowInfoForm={setShowInfoForm}
+              setIsOpenModal={setIsOpenModal}
+            />
           )}
         </Modal>
       )}
+
+      {showSummary && <Backdrop />}
 
       <Footer />
     </div>
